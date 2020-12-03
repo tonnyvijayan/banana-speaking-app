@@ -8,8 +8,14 @@ var serverUrl = "https://api.funtranslations.com/translate/minion.json";
 
 /**making the api query url  */
 function makeQueryUrl(text) {
-    return serverUrl + "?" + "text=" + text
+    return serverUrl + "?" + "text=" + text;
 
+};
+
+/**error handling message */
+function errorHandler(error) {
+    console.log("Error occured", error);
+    alert("Error encountere please try after sometime")
 };
 
 /**making the function which will trigger when clicked */
@@ -22,6 +28,7 @@ function clickHandler() {
             var translatedText = json.contents.translated;
             txtOutput.innerText = translatedText
         })
+        .catch(errorHandler)    /**error handling */
 };
 
 
